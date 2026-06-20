@@ -42,7 +42,7 @@ export function Footer() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <footer ref={ref} className="bg-black text-white py-16 md:py-20 px-6">
+    <footer ref={ref} className="bg-coffee-dark text-[#FBF3E9] py-16 md:py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid gap-12 md:gap-8 md:grid-cols-3">
           {/* Brand */}
@@ -53,7 +53,7 @@ export function Footer() {
             className="text-center md:text-left"
           >
             <div className="flex justify-center md:justify-start mb-4">
-              <div className="bg-white rounded-full p-3">
+              <div className="bg-[#FBF3E9] rounded-full p-3">
                 <LogoMark className="w-8 h-8" />
               </div>
             </div>
