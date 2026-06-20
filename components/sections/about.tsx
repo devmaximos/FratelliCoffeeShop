@@ -19,13 +19,13 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 md:py-32 px-6 bg-white relative overflow-hidden">
+    <section ref={ref} className="py-24 md:py-32 px-6 bg-coffee-card relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-10 right-10 w-32 h-32 opacity-10">
-        <DoodleIcon className="w-full h-full text-black" />
+      <div className="absolute top-10 right-10 w-32 h-32 opacity-[0.12]">
+        <DoodleIcon className="w-full h-full text-coffee-brown" />
       </div>
-      <div className="absolute bottom-20 left-10 w-24 h-24 opacity-5">
-        <DoodleIcon className="w-full h-full text-black" />
+      <div className="absolute bottom-20 left-10 w-24 h-24 opacity-[0.06]">
+        <DoodleIcon className="w-full h-full text-coffee-brown" />
       </div>
 
       <div className="max-w-6xl mx-auto">
@@ -37,16 +37,16 @@ export function About() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative"
           >
-            <div className="aspect-square rounded-full bg-gradient-to-br from-neutral-100 to-neutral-200 border-2 border-black/10 overflow-hidden">
+            <div className="aspect-square rounded-full bg-gradient-to-br from-[#F3E7D8] to-[#E8D9C3] border-2 border-coffee-brown/15 overflow-hidden">
               {/* Photo placeholder */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-black/5 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-black/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-coffee-brown/10 flex items-center justify-center">
+                    <svg className="w-10 h-10 text-coffee-brown/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <p className="text-sm text-black/30 font-sans">Φωτογραφία</p>
+                  <p className="text-sm text-coffee-brown/40 font-sans">Φωτογραφία</p>
                 </div>
               </div>
             </div>
@@ -55,7 +55,7 @@ export function About() {
               initial={{ scale: 0, rotate: -45 }}
               animate={isInView ? { scale: 1, rotate: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-black text-white flex items-center justify-center"
+              className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-coffee-dark text-[#FBF3E9] flex items-center justify-center"
             >
               <span className="font-script text-lg">Από το 2018</span>
             </motion.div>
@@ -67,10 +67,10 @@ export function About() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            <h2 className="font-script text-4xl md:text-5xl text-black mb-6">
+            <h2 className="font-script text-4xl md:text-5xl text-coffee-dark mb-6">
               Η Ιστορία μας
             </h2>
-            <div className="space-y-4 text-black/70 font-sans leading-relaxed">
+            <div className="space-y-4 text-coffee-dark/70 font-sans leading-relaxed">
               <p>
                 Το Fratelli Cafe γεννήθηκε από την αγάπη για τον καφέ και την επιθυμία να δημιουργήσουμε έναν χώρο που νιώθεις σαν σπίτι. Το όνομά μας σημαίνει &quot;αδέρφια&quot; στα ιταλικά, γιατί εδώ είμαστε όμαστε μια οικογένεια.
               </p>
