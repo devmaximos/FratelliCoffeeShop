@@ -80,34 +80,34 @@ function TestimonialCard({ testimonial, index, isInView }: TestimonialCardProps)
       whileHover={{ y: -5, transition: { duration: 0.3 } }}
       className="group relative"
     >
-      <div className="bg-white rounded-2xl border border-black/10 p-6 shadow-sm hover:shadow-lg transition-all duration-300 h-full">
+      <div className="bg-coffee-card rounded-2xl border border-coffee-brown/15 p-6 shadow-sm hover:shadow-lg transition-all duration-300 h-full">
         {/* Quote icon */}
-        <QuoteIcon className="w-8 h-8 text-black/10 mb-4" />
+        <QuoteIcon className="w-8 h-8 text-coffee-brown/15 mb-4" />
 
         {/* Rating */}
         <div className="flex items-center gap-1 mb-4">
           {[...Array(5)].map((_, i) => (
             <StarIcon
               key={i}
-              className={`w-5 h-5 ${i < testimonial.rating ? "text-black" : "text-black/20"}`}
+              className={`w-5 h-5 ${i < testimonial.rating ? "text-coffee-gold" : "text-coffee-brown/20"}`}
               filled={i < testimonial.rating}
             />
           ))}
         </div>
 
         {/* Text */}
-        <p className="font-sans text-black/70 leading-relaxed mb-6">
+        <p className="font-sans text-coffee-dark/70 leading-relaxed mb-6">
           {testimonial.text}
         </p>
 
         {/* Author */}
-        <div className="flex items-center justify-between pt-4 border-t border-black/10">
+        <div className="flex items-center justify-between pt-4 border-t border-coffee-brown/15">
           <div>
-            <p className="font-script text-lg text-black">{testimonial.name}</p>
-            <p className="font-sans text-xs text-black/40">{testimonial.date}</p>
+            <p className="font-script text-lg text-coffee-dark">{testimonial.name}</p>
+            <p className="font-sans text-xs text-coffee-dark/40">{testimonial.date}</p>
           </div>
-          <div className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center">
-            <span className="font-sans text-sm text-black/40">
+          <div className="w-10 h-10 rounded-full bg-coffee-brown/10 flex items-center justify-center">
+            <span className="font-sans text-sm text-coffee-brown/50">
               {testimonial.name.charAt(0)}
             </span>
           </div>
@@ -122,13 +122,13 @@ export function Testimonials() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 md:py-32 px-6 bg-[#FAF9F7] relative overflow-hidden">
+    <section ref={ref} className="py-24 md:py-32 px-6 bg-coffee-page relative overflow-hidden">
       {/* Decorative elements */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={isInView ? { opacity: 0.03, scale: 1 } : {}}
         transition={{ duration: 1 }}
-        className="absolute top-20 right-20 w-96 h-96 rounded-full border-2 border-black"
+        className="absolute top-20 right-20 w-96 h-96 rounded-full border-2 border-coffee-brown"
         style={{ pointerEvents: "none" }}
       />
 
@@ -145,21 +145,21 @@ export function Testimonials() {
             initial={{ scale: 0, rotate: -45 }}
             animate={isInView ? { scale: 1, rotate: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center gap-3 bg-black text-white px-6 py-3 rounded-full mb-6"
+            className="inline-flex items-center gap-3 bg-coffee-dark text-[#FBF3E9] px-6 py-3 rounded-full mb-6"
           >
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
-                <StarIcon key={i} className="w-4 h-4 text-white" filled={i < 5} />
+                <StarIcon key={i} className="w-4 h-4 text-coffee-gold" filled={i < 5} />
               ))}
             </div>
             <span className="font-sans font-bold text-xl">4.7</span>
             <span className="font-sans text-sm opacity-70">από 200+ αξιολογήσεις</span>
           </motion.div>
 
-          <h2 className="font-script text-5xl md:text-6xl text-black mb-4">
+          <h2 className="font-script text-5xl md:text-6xl text-coffee-dark mb-4">
             Τι λένε οι πελάτες
           </h2>
-          <p className="font-sans text-lg text-black/60 max-w-2xl mx-auto">
+          <p className="font-sans text-lg text-coffee-dark/60 max-w-2xl mx-auto">
             Είμαστε ευγνώμονες για την εμπιστοσύνη που μας δείχνουν οι πελάτες μας κάθε μέρα.
           </p>
         </motion.div>
@@ -183,11 +183,11 @@ export function Testimonials() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <a
+          
             href="https://www.google.com/maps/search/fratelli+cafe+serres"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-sans text-sm text-black/60 hover:text-black transition-colors"
+            className="inline-flex items-center gap-2 font-sans text-sm text-coffee-dark/60 hover:text-coffee-dark transition-colors"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
