@@ -4,35 +4,41 @@
 
 @layer base {
   :root {
-    --background: 45 20% 98%;
-    --foreground: 0 0% 5%;
+    --background: 36 38% 95%;
+    --foreground: 20 35% 14%;
 
-    --card: 45 15% 100%;
-    --card-foreground: 0 0% 5%;
+    --card: 35 45% 98%;
+    --card-foreground: 20 35% 14%;
 
-    --popover: 45 15% 100%;
-    --popover-foreground: 0 0% 5%;
+    --popover: 35 45% 98%;
+    --popover-foreground: 20 35% 14%;
 
-    --primary: 0 0% 5%;
-    --primary-foreground: 45 20% 98%;
+    --primary: 18 45% 24%;
+    --primary-foreground: 36 50% 97%;
 
-    --secondary: 45 10% 92%;
-    --secondary-foreground: 0 0% 5%;
+    --secondary: 32 35% 90%;
+    --secondary-foreground: 20 35% 14%;
 
-    --muted: 45 10% 92%;
-    --muted-foreground: 0 0% 35%;
+    --muted: 32 30% 90%;
+    --muted-foreground: 20 18% 38%;
 
-    --accent: 0 0% 5%;
-    --accent-foreground: 45 20% 98%;
+    --accent: 28 65% 48%;
+    --accent-foreground: 36 50% 97%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 45 20% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 36 50% 97%;
 
-    --border: 45 10% 88%;
-    --input: 45 10% 88%;
-    --ring: 0 0% 5%;
+    --border: 30 25% 84%;
+    --input: 30 25% 84%;
+    --ring: 18 45% 24%;
 
     --radius: 0.5rem;
+
+    --coffee-bg: #FBF3E9;
+    --coffee-card: #FFFBF5;
+    --coffee-dark: #3B2418;
+    --coffee-brown: #6B4226;
+    --coffee-gold: #C8862F;
   }
 }
 
@@ -53,6 +59,17 @@
     font-family: var(--font-sans), system-ui, sans-serif;
   }
 }
+
+/* Warm coffee-shop palette helpers (replace prior black/white usage) */
+.bg-coffee-page { background-color: var(--coffee-bg); }
+.bg-coffee-card { background-color: var(--coffee-card); }
+.bg-coffee-dark { background-color: var(--coffee-dark); }
+.bg-coffee-brown { background-color: var(--coffee-brown); }
+.bg-coffee-gold { background-color: var(--coffee-gold); }
+.text-coffee-dark { color: var(--coffee-dark); }
+.text-coffee-brown { color: var(--coffee-brown); }
+.text-coffee-gold { color: var(--coffee-gold); }
+.border-coffee { border-color: var(--coffee-dark); }
 
 @keyframes steam {
   0%, 100% {
