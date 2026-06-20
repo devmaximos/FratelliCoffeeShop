@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const menuCategories = [
   {
@@ -139,31 +140,31 @@ function MenuCard({ category, index, isInView }: MenuCardProps) {
       onHoverEnd={() => setIsHovered(false)}
       className="group relative cursor-pointer"
     >
-      <div className="relative bg-white rounded-2xl border-2 border-black/10 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
+      <div className="relative bg-coffee-card rounded-2xl border-2 border-coffee-brown/15 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
         {/* Card content */}
         <div className="p-6 text-center">
           {/* Icon circle */}
           <motion.div
             animate={isHovered ? { scale: 1.1, rotate: [0, -5, 5, 0] } : { scale: 1 }}
             transition={{ duration: 0.3 }}
-            className="w-20 h-20 mx-auto mb-4 rounded-full bg-black/5 flex items-center justify-center text-black"
+            className="w-20 h-20 mx-auto mb-4 rounded-full bg-coffee-gold/10 flex items-center justify-center text-coffee-brown"
           >
             {category.icon}
           </motion.div>
 
-          <h3 className="font-script text-2xl text-black mb-1">{category.title}</h3>
-          <p className="font-sans text-sm text-black/50">{category.subtitle}</p>
+          <h3 className="font-script text-2xl text-coffee-dark mb-1">{category.title}</h3>
+          <p className="font-sans text-sm text-coffee-dark/50">{category.subtitle}</p>
         </div>
 
         {/* Image placeholder */}
-        <div className="aspect-[4/3] bg-gradient-to-br from-neutral-50 to-neutral-100 flex items-center justify-center">
+        <div className="aspect-[4/3] bg-gradient-to-br from-[#F3E7D8] to-[#EADFCD] flex items-center justify-center">
           <div className="text-center">
-            <div className="w-12 h-12 mx-auto rounded-full bg-black/5 flex items-center justify-center mb-2">
-              <svg className="w-6 h-6 text-black/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-12 h-12 mx-auto rounded-full bg-coffee-brown/10 flex items-center justify-center mb-2">
+              <svg className="w-6 h-6 text-coffee-brown/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
-            <p className="text-xs text-black/20 font-sans">Φωτογραφία</p>
+            <p className="text-xs text-coffee-brown/40 font-sans">Φωτογραφία</p>
           </div>
         </div>
       </div>
@@ -172,7 +173,7 @@ function MenuCard({ category, index, isInView }: MenuCardProps) {
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={isHovered ? { scale: 1.02, opacity: 1 } : { scale: 0.95, opacity: 0 }}
-        className="absolute inset-0 rounded-2xl border-2 border-black pointer-events-none"
+        className="absolute inset-0 rounded-2xl border-2 border-coffee-gold pointer-events-none"
       />
     </motion.div>
   );
@@ -181,6 +182,7 @@ function MenuCard({ category, index, isInView }: MenuCardProps) {
 export function Menu() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isMobile = useIsMobile();
 
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -188,12 +190,16 @@ export function Menu() {
     offset: ["start end", "end start"],
   });
 
-  // Fan-out transform
-  const rotate = useTransform(scrollYProgress, [0.2, 0.5], [15, 0]);
-  const x = useTransform(scrollYProgress, [0.2, 0.5], [-50, 0]);
+  // Fan-out transform — desktop only. On mobile this whole-grid tilt
+  // combined with address-bar viewport shifts looked broken/jittery,
+  // so mobile relies on the per-card entrance animation instead.
+  const rotateRaw = useTransform(scrollYProgress, [0.2, 0.5], [15, 0]);
+  const xRaw = useTransform(scrollYProgress, [0.2, 0.5], [-50, 0]);
+  const rotate = isMobile ? 0 : rotateRaw;
+  const x = isMobile ? 0 : xRaw;
 
   return (
-    <section id="menu" ref={ref} className="py-24 md:py-32 px-6 bg-[#FAF9F7]">
+    <section id="menu" ref={ref} className="py-24 md:py-32 px-6 bg-coffee-page">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -202,16 +208,16 @@ export function Menu() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-script text-5xl md:text-6xl text-black mb-4">
+          <h2 className="font-script text-5xl md:text-6xl text-coffee-dark mb-4">
             Το Μενού μας
           </h2>
-          <p className="font-sans text-lg text-black/60 max-w-2xl mx-auto">
+          <p className="font-sans text-lg text-coffee-dark/60 max-w-2xl mx-auto">
             Από τον κλασσικό ελληνικό καφέ μέχρι νόστιμα σνακ και γλυκά,
             όλα φτιαγμένα με αγάπη και φρέσκα υλικά.
           </p>
         </motion.div>
 
-        {/* Menu grid with fan-out animation */}
+        {/* Menu grid with fan-out animation (desktop) */}
         <div ref={containerRef} className="relative">
           <motion.div
             style={{ rotate, x }}
@@ -231,9 +237,9 @@ export function Menu() {
         {/* Decorative circles */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
-          animate={isInView ? { opacity: 0.05, scale: 1 } : {}}
+          animate={isInView ? { opacity: 0.06, scale: 1 } : {}}
           transition={{ duration: 1, delay: 0.5 }}
-          className="absolute top-20 -left-20 w-64 h-64 rounded-full border-2 border-black"
+          className="absolute top-20 -left-20 w-64 h-64 rounded-full border-2 border-coffee-brown"
           style={{ pointerEvents: "none" }}
         />
       </div>
