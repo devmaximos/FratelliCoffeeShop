@@ -79,7 +79,7 @@ function LocationCard({ location, index, isInView }: LocationCardProps) {
     >
       <motion.div
         whileHover={{ y: -5 }}
-        className="bg-white rounded-2xl overflow-hidden border border-black/10 shadow-sm hover:shadow-xl transition-all duration-300"
+        className="bg-coffee-card rounded-2xl overflow-hidden border border-coffee-brown/15 shadow-sm hover:shadow-xl transition-all duration-300"
       >
         {/* Map embed */}
         <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
@@ -95,7 +95,7 @@ function LocationCard({ location, index, isInView }: LocationCardProps) {
             title={`Χάρτης - ${location.name}`}
           />
           {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FFFBF5]/60 to-transparent pointer-events-none" />
         </div>
 
         {/* Content */}
@@ -103,26 +103,26 @@ function LocationCard({ location, index, isInView }: LocationCardProps) {
           {/* Location name badge */}
           <motion.div
             animate={isHovered ? { scale: 1.05 } : { scale: 1 }}
-            className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full mb-4"
+            className="inline-flex items-center gap-2 bg-coffee-dark text-[#FBF3E9] px-4 py-2 rounded-full mb-4"
           >
             <LocationPin className="w-4 h-4" />
             <span className="font-script text-lg">{location.name}</span>
           </motion.div>
 
           {/* Address */}
-          <address className="font-sans text-lg text-black not-italic mb-4">
+          <address className="font-sans text-lg text-coffee-dark not-italic mb-4">
             {location.address}
           </address>
 
           {/* Hours */}
           <div className="mb-4">
             <div className="flex items-center gap-2 mb-2">
-              <ClockIcon className="w-4 h-4 text-black/40" />
-              <span className="font-sans text-sm text-black/60">Ωράριο</span>
+              <ClockIcon className="w-4 h-4 text-coffee-brown/50" />
+              <span className="font-sans text-sm text-coffee-dark/60">Ωράριο</span>
             </div>
             <div className="space-y-1 pl-6">
               {location.hours.map((schedule, i) => (
-                <div key={i} className="flex justify-between font-sans text-sm text-black/70">
+                <div key={i} className="flex justify-between font-sans text-sm text-coffee-dark/70">
                   <span>{schedule.day}</span>
                   <span>{schedule.time}</span>
                 </div>
@@ -132,10 +132,10 @@ function LocationCard({ location, index, isInView }: LocationCardProps) {
 
           {/* Phone */}
           <div className="flex items-center gap-2 mb-6">
-            <PhoneIcon className="w-4 h-4 text-black/40" />
-            <a
+            <PhoneIcon className="w-4 h-4 text-coffee-brown/50" />
+            
               href={`tel:${location.phone}`}
-              className="font-sans text-sm text-black/70 hover:text-black transition-colors"
+              className="font-sans text-sm text-coffee-dark/70 hover:text-coffee-dark transition-colors"
             >
               {location.phone}
             </a>
@@ -148,7 +148,7 @@ function LocationCard({ location, index, isInView }: LocationCardProps) {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center justify-center gap-2 w-full bg-black text-white py-3 rounded-full font-sans font-medium hover:bg-black/90 transition-colors"
+            className="flex items-center justify-center gap-2 w-full bg-coffee-dark text-[#FBF3E9] py-3 rounded-full font-sans font-medium hover:bg-coffee-brown transition-colors"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
@@ -166,7 +166,7 @@ export function Locations() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="locations" ref={ref} className="py-24 md:py-32 px-6 bg-white">
+    <section id="locations" ref={ref} className="py-24 md:py-32 px-6 bg-coffee-card">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -175,10 +175,10 @@ export function Locations() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-script text-5xl md:text-6xl text-black mb-4">
+          <h2 className="font-script text-5xl md:text-6xl text-coffee-dark mb-4">
             Βρείτε μας
           </h2>
-          <p className="font-sans text-lg text-black/60 max-w-2xl mx-auto">
+          <p className="font-sans text-lg text-coffee-dark/60 max-w-2xl mx-auto">
             Δύο τοποθεσίες στη καρδιά των Σερρών για να σας εξυπηρετούμε καλύτερα.
           </p>
         </motion.div>
