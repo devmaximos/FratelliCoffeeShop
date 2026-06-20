@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 20% 98%;
+    --foreground: 0 0% 5%;
+
+    --card: 45 15% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 45 15% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 0 0% 5%;
+    --primary-foreground: 45 20% 98%;
+
+    --secondary: 45 10% 92%;
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 45 10% 92%;
+    --muted-foreground: 0 0% 35%;
+
+    --accent: 0 0% 5%;
+    --accent-foreground: 45 20% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 20% 98%;
+
+    --border: 45 10% 88%;
+    --input: 45 10% 88%;
+    --ring: 0 0% 5%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-script {
+    font-family: var(--font-script), cursive;
+  }
+  .font-sans {
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+}
+
+@keyframes steam {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-8px) scaleY(1.2);
+    opacity: 0.3;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+.animate-steam {
+  animation: steam 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+.hand-drawn-border {
+  border: 2px solid transparent;
+  border-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='2' y='2' width='calc(100%25 - 4px)' height='calc(100%25 - 4px)' fill='none' stroke='%23000' stroke-width='2' stroke-dasharray='6%2c 4' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e") 2 round;
+}
+
+.badge-circle {
+  @apply rounded-full border-2 border-black bg-white p-4 inline-flex items-center justify-center;
+}
