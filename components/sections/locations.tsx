@@ -133,7 +133,7 @@ function LocationCard({ location, index, isInView }: LocationCardProps) {
           {/* Phone */}
           <div className="flex items-center gap-2 mb-6">
             <PhoneIcon className="w-4 h-4 text-coffee-brown/50" />
-            
+              <a
               href={`tel:${location.phone}`}
               className="font-sans text-sm text-coffee-dark/70 hover:text-coffee-dark transition-colors"
             >
