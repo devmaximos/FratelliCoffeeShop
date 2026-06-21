@@ -183,7 +183,7 @@ export function Testimonials() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-12"
         >
-          
+          <a
             href="https://www.google.com/maps/search/fratelli+cafe+serres"
             target="_blank"
             rel="noopener noreferrer"
